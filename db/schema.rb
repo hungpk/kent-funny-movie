@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_124514) do
   create_table "movies", force: :cascade do |t|
     t.text "title"
     t.text "video_id"
+    t.text "url"
     t.text "description"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
