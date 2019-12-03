@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def authenticate
     unless user = User.authenticate(params[:user])
