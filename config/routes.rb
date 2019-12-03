@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # Login or Register new user
   post "/authenticate", to: "users#authenticate", as: :authenticate
   get "/logout", to: "users#logout", as: :logout
+  resources :movies, only: [:index, :new, :create]
 end

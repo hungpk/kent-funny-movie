@@ -4,11 +4,9 @@
     <title>Funny Movies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'app', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'app', 'data-turbolinks-track': 'reload' %>   
   </head>
-
   <body>
     <div class="container-fluid">
       <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom">
@@ -18,7 +16,17 @@
         </h5>
         <%= render '/shared/welcome' %>        
        </div>
+      <% 
+      if flash[:notice] %>
+        <div class="alert alert-success"> <%= flash[:notice] %> </div>
+      <% end %>
+
+      <% if flash[:error] %>
+        <div class="alert alert-danger"> <%= flash[:error] %> </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
+  
 </html>
