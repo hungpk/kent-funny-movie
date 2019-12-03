@@ -5,6 +5,8 @@
             </iframe>          
             <div class="media-body">
                 <h5 class="mt-0 mb-1"> <%= movie.title %> </h5>
+                Shared by: <%= movie.user.email %> <br/>
+                Description: <br/>
                 <%= movie.description %>
             </div>
         </li>
