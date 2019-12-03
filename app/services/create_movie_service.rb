@@ -8,7 +8,7 @@ class CreateMovieService
   end
 
   def call
-    raise Exceptions::InvalidYoutubeUrl if video_id.blank?
+    raise Exceptions::InvalidYoutubeUrl, "Invalid Youtube URL" if video_id.blank?
 
     Movie.create!(video_id: video_id,
                   user_id: user_id,
