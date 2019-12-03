@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-
+require 'exceptions'
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
   protected
     def login_required!
-      redirect_to root_path, flash: "Please sign in." unless current_user
+      redirect_to root_path, flash: {error: "Please sign in."} unless current_user
     end
 
     def current_user
@@ -16,6 +16,3 @@ class ApplicationController < ActionController::Base
       end
     end
 end
-
-# FIXME: New Loader issue which cause controllers ignore all actions if the custom classes are not loaded
-class InvalidYoutubeUrl < StandardError; end

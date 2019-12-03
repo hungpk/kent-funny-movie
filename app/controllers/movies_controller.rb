@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   [
     Yt::Errors::NoItems,
     ActiveRecord::RecordInvalid,
-    InvalidYoutubeUrl
+    Exceptions::InvalidYoutubeUrl
   ].each { |err_klass|
     rescue_from(err_klass, with: :show_errors)
   }
