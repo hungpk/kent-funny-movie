@@ -16,3 +16,6 @@ class ApplicationController < ActionController::Base
       end
     end
 end
+
+# FIXME: New Loader issue which cause controllers ignore all actions if the custom classes are not loaded
+class InvalidYoutubeUrl < StandardError; end

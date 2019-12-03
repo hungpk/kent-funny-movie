@@ -1,0 +1,17 @@
+<ul class="movie-list list-unstyled mx-auto">
+    <% @movies.each do |movie| %>
+        <li class="media mt-3 movie-item">     
+            <iframe class="mr-3" width="300" src="<%= youtube_embed_url_for(movie.video_id) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>          
+            <div class="media-body">
+                <h5 class="mt-0 mb-1"> <%= movie.title %> </h5>
+                Shared by: <%= movie.user.email %> <br/>
+                Description: <br/>
+                <span title="<%= movie.description %>">
+                <%= truncate(movie.description, length: 220) %>
+                </span>
+            </div>
+        </li>
+    <% end %>
+    <%= paginate @movies %>
+</ul>

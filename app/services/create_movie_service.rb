@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-class InvalidYoutubeUrl < StandardError; end
 class CreateMovieService
   attr_reader :url, :user_id
   def initialize(url:, user_id:)
