@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  rescue_from Exceptions::InvalidPassword, with: :show_errors
+
   def authenticate
     unless user = User.authenticate(user_params)
       user = User.create!(user_params)
@@ -17,5 +19,8 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:email, :password)
+    end
+    def show_errors(err)
+      redirect_to root_path, flash: { error: "Invalid Youtube URL" }
     end
 end
